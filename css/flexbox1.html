@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Flexbox #01</title>
+    <link rel="stylesheet" href="css/tag.css">
+    <style>
+        div {
+            border: 5px solid blue;
+            font-size: 40px;
+            margin: 5px;
+        }
+
+        .big {
+            font-size: 1.5em;
+        }
+
+        .flex-container {
+            display: flex;
+            flex-direction: column;
+            flex-direction: column-reverse;
+            flex-direction: row-reverse;
+            flex-direction: row;
+
+            width: 20%;
+            height:  200px;
+            flex-wrap: wrap; /* Controla se vai ser so uma linha ou varias linhas, manipulando a ordem do cross axis */
+            flex-wrap: wrap-reverse;
+            flex-wrap: nowrap;
+
+            flex-flow: column wrap; /* Aqui ele faz o trabalho de 2 em 1, o flex-direction e o flex-wrap */
+            flex-flow: column-reverse nowrap;
+            flex-flow: row wrap;
+
+            /* Main Axis */
+            /* Posição */
+            justify-content: center;
+            justify-content: flex-start;
+            justify-content: flex-end;
+            /* Espaçamento entre os flex-items */
+            justify-content: space-around;
+            justify-content: space-between;
+            justify-content: space-evenly;
+
+            /* Cross Axis */
+            /* Tamanho */
+            align-items: stretch; /* Padrão */
+            align-items: baseline; /* Pega so a palavra */
+            /* Posição */
+            align-items: center;
+            align-items: flex-start;
+            align-items: flex-end;
+
+            /* Quando tem mais de uma linha */
+            /* Posição */
+            align-content: center;
+            align-content: flex-start;
+            align-content: flex-end;
+            /* Espaçamento */
+            align-content:  space-around;
+            align-content: space-between;
+            align-content: space-evenly;
+            align-content: stretch;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="flex-container tag nolabel">
+        <div class="tag nolabel">1</div>
+        <div class="tag nolabel">2</div>
+        <div class="tag nolabel big">3</div>
+        <div class="tag nolabel">4</div>
+        <div class="tag nolabel">5</div>
+        <div class="tag nolabel">6</div>
+        <div class="tag nolabel">7</div>
+        <div class="tag nolabel">8</div>
+        <div class="tag nolabel">9</div>
+        <div class="tag nolabel">10</div>
+    </div>
+    <script src="js/tag.js"></script>
+</body>
+
+</html>

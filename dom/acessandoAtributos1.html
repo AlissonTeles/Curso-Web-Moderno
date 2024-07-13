@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='UTF-8'>
+    <title>Acessando Atributos #01</title>
+    <link rel='stylesheet' href='css/estilo.css'>
+</head>
+
+<body class='conteudo exercicio'>
+    <div>
+        <a href='https://www.cod3r.com.br'>Cod3r</a>
+    </div>
+    <div id='primeiro'>
+        <img src='http://files.cod3r.com.br/curso-web/logo-estreita.png' alt='logo'>
+    </div>
+    <script>
+        const img = document.querySelector("img")
+        console.log("Imagem Get Atribute src: ", img.getAttribute("src"))
+        console.log("Imagem src: ", img.src)
+        console.log("Imagem [src]: ", img['src'])
+        console.log("Imagem Get Atribute alt: ", img.getAttribute("alt"))
+        console.log("Imagem alt: ", img.alt)
+
+        // Tem nodetype 1 por ser um elemento
+        console.log("Imagem node type: ", img.nodeType)
+        console.log("Imagem node name: ", img.nodeName)
+        console.log("Imagem node value: ", img.nodeValue)
+        // Tem nodeType 2 por ser um atributo
+        const src = img.getAttributeNode("src")
+        console.log("src node type: ", src.nodeType)
+        console.log("src node name: ", src.nodeName)
+        console.log("src node value: ", src.nodeValue)
+        
+        const link = document.querySelector("a")
+        console.log("link Get Atribute src: ", link.getAttribute("href"))
+        console.log("link src: ", link.href)
+        console.log("link node type: ", link.nodeType)
+        console.log("link node name: ", link.nodeName)
+        console.log("link node value: ", link.nodeValue)
+        console.log("link first node type: ", link.firstChild.nodeType)
+        link.firstChild.nodeValue = "Testando"
+        // Ou link.innerHTML = "Testando"
+
+
+    </script>
+</body>
+
+</html>

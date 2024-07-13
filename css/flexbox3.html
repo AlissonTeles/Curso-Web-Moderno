@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Flexbox #03</title>
+    <link rel="stylesheet" href="css/tag.css">
+    <style>
+        div {
+            border: 5px solid blue;
+            font-size: 40px;
+        }
+       .flex-container {
+        display: flex;
+       }
+
+       .flex-container div {
+        flex-basis: 200px; /* Muda dependendo do flex-direction */
+        width: 10000px; /* Não vai ter efeito*/
+       }
+
+       .flex-container div:nth-child(2) {
+        /* Flex-grow, Flex-shrink e Flex-basis */
+            flex: 2 1 500px;
+       }
+
+
+    </style>
+</head>
+
+<body>
+    <div class="flex-container tag nolabel">
+        <div class="tag nolabel">1</div>
+        <div class="tag nolabel">2</div>
+        <div class="tag nolabel">3</div>
+        <div class="tag nolabel">4</div>
+    </div>
+    <script src="js/tag.js"></script>
+</body>
+
+</html>

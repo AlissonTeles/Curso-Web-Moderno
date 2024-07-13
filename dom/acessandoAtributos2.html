@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='UTF-8'>
+    <title>Acessando Atributos #02</title>
+    <link rel='stylesheet' href='css/estilo.css'>
+</head>
+
+<body class='conteudo exercicio'>
+    <div>
+        <label for="compras">Compras</label>
+        <ul id="compras" destino='escritório' data-urgencia="5">
+            <li>Café</li>
+            <li>Água</li>
+            <li>Copo Descartável</li>
+        </ul>
+    </div>
+    <script>
+        const ul = document.querySelector("div ul[destino]")
+        console.log(ul.childNodes)
+        console.log(ul.id)
+        console.log(ul.destino) // não vai funcionar
+        console.log(ul.getAttribute('destino'))
+        console.log(ul.hasAttribute('destino'))
+        ul.setAttribute('destino', 'casa')
+        ul.setAttribute('custo', 100)
+        ul.removeAttribute('destino')
+
+        console.log(ul.dataset) // pega todas as propriedades que tem 'data' + nome
+
+        // Se liga
+        const label = document.querySelector("label")
+        console.log(label.for) // não vai funcionar por que o for é um termo comum
+        console.log(label.htmlfor) // então usamos 'html' + nome para funcionar
+        console.log(label.getAttribute('for')) // aqui é normal
+
+
+    </script>
+</body>
+
+</html>

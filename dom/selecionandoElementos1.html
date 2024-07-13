@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Selecionar Elementos #01</title>
+    <link rel="stylesheet" href="css/estilo.css">
+</head>
+<body class="conteudo exercicio">
+    <div id="primeiro">#primeiro</div>
+    <div>Segundo</div>
+    <div class="terceiro ultimo">.terceiro .ultimo</div>
+    <script>              
+        // Pegamos pelo id 
+        document.getElementById("primeiro").classList.add("destaque")
+
+        // Pegamos todas as tags com div, como ele volta um HTMLColection precisamos converter para Array
+        const divs = document.getElementsByTagName("div")
+        Array.from(divs).forEach(e => e.classList.remove("destaque"))
+
+        const divsSpred = [...divs]
+        divsSpred.forEach(e => e.classList.add("destaque"))
+
+        // Pegamos todos os elementos com esse nome de classe
+        const ultimo = document.getElementsByClassName("ultimo")
+        for (let e of ultimo) {
+            e.classList.remove("destaque")
+        }
+
+    </script>
+</body>
+</html>

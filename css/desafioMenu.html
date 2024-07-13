@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Desafio Menu</title>
+    <link
+      href="https://fonts.googleapis.com/css?family=Oswald"
+      rel="stylesheet"
+    />
+    <link
+      href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        background-color: #f9f9f9;
+        margin: 0;
+        font-family: "Oswald", cursive;
+      }
+      .logo {
+        display: inline-block;
+        height: 80px;
+        padding: 15px;
+      }
+      .logo > a > img {
+        height: 100%;
+      }
+      .cabecalho {
+        width: 100%;
+        background-color: black;
+        border-bottom: solid blue 3px;
+      }
+      .menu {
+        display: inline-block;
+        height: 80px;
+        position: absolute;
+      }
+      .menu > ul {
+        list-style: none;
+        padding: 0;
+      }
+      .menu > ul > li {
+        display: inline-block;
+        padding: 12.3px;
+      }
+      .active,
+      .menu > ul > li:hover {
+        background-color: blue;
+      }
+      .menu > ul > li > a {
+        text-decoration: none;
+        color: #fff;
+      }
+      .autenticacao {
+        float: right;
+        padding: 1.85em;
+        height: 80px;
+      }
+      .autenticacao > a {
+        color: #fff;
+        text-decoration: none;
+        margin-left: 10px;
+        padding: 12.3px;
+      }
+      .autenticacao > a:hover {
+        background-color: blue;
+      }
+      .autenticacao > a.botao:hover {
+        background-color: rgba(255, 0, 0, 0.508);
+      }
+      .botao {
+        border-radius: 25px;
+        background-color: red;
+        padding: 2px 10px;
+      }
+
+      .menu-toggle {
+        display: none;
+      }
+      .menu-toggle:hover {
+        background-color: #cca4a4;
+      }
+
+      @media (max-width: 720px) {
+        .autenticacao {
+          display: none;
+        }
+      }
+      @media (max-width: 554px) {
+        .menu {
+          display: none;
+        }
+        .menu-toggle {
+          display: block;
+          float: right;
+          padding: 12.3px;
+          margin: 1.5em;
+          background: #5d5454;
+          color: white;
+          border: none;
+          border-radius: 5px;
+        }
+      }
+      @media (max-width: 385px) {
+        .menu-toggle {
+          display: none;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <header class="cabecalho">
+      <div class="logo">
+        <a href="#inicio">
+          <img src="http://files.cod3r.com.br/curso-web/logo.png" alt="Logo" />
+        </a>
+      </div>
+      <button class="menu-toggle">
+        <i class="fa fa-lg fa-bars"></i>
+      </button>
+      <nav class="menu">
+        <ul>
+          <li>
+            <a href="#inicio">Início</a>
+          </li>
+          <li>
+            <a href="#cursos">Cursos</a>
+          </li>
+          <li>
+            <a href="#sobre">Sobre</a>
+          </li>
+          <li>
+            <a href="#contato">Contato</a>
+          </li>
+        </ul>
+      </nav>
+      <aside class="autenticacao">
+        <a href="#login">Login</a>
+        <a href="#registar" class="botao destaque">Registrar</a>
+      </aside>
+    </header>
+
+    <script>
+        window.onhashchange = function(e) {
+            let links = document.querySelectorAll("li");
+            let url = window.location.href.split("#")[1]
+            links.forEach((link) => {
+              link.children[0].href.split("#")[1] == url ? link.className = "active" : link.className = ""
+            });
+        }      
+    </script>
+  </body>
+</html>
