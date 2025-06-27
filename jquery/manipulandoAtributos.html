@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Manipulando Atributos</title>
+    <link rel="stylesheet" href="css/estilo.css" />
+    <script src="js/jquery.js"></script>
+    <style>
+      [wm-relogio] {
+        text-align: center;
+      }
+
+      [wm-relogio] button {
+        font-size: 1.6em;
+        padding: 0px 25px;
+        margin: 10px;
+      }
+    </style>
+  </head>
+
+  <body class="conteudo exercicio">
+    <h1>Manipulando Atributos</h1>
+    <div wm-relogio="1000"></div>
+    <div wm-relogio="3000"></div>
+
+    <script>
+      // Classe relogio que vai pegar o tempo atual e podemos manipular os tics que ele vai mostrando o tempo
+      function Relogio(element) {
+        const horaCerta = $("<p>").html("0");
+        const horaMais = $("<button>").html("+");
+        const horaMenos = $("<button>").html("-");
+
+        $(element).append(horaCerta, horaMais, horaMenos);
+
+        // Aqui nos PEGAMOS o valor do attributo
+        const ticRelogio = () => parseInt($(element).attr("wm-relogio"));
+        let temporizador = null;
+        const iniciar = () => {
+          if (temporizador) clearInterval(temporizador);
+          temporizador = setInterval(() => {
+            horaCerta.html(new Date().toLocaleString("pt-BR"));
+          }, ticRelogio());
+          temporizador;
+        };
+        // Aqui nos ALTERAMOS/CRIAMOS o valor do attributo
+        const changeTic = (tic) => {
+          $(element).attr("wm-relogio", Math.max(ticRelogio() + tic, 1000));
+          iniciar();
+        };
+
+        horaMais.click((e) => changeTic(1000));
+        horaMenos.click((e) => changeTic(-1000));
+        iniciar();
+      }
+
+      $("[wm-relogio]").each((i, e) => new Relogio(e));
+
+      // Aqui nos ADICIONAMOS/ALTERAMOS o valor de varios attributos
+      $("[wm-relogio]").attr({ opa: 1, verdade: true });
+      // Aqui nos REMOVEMOS um atributo
+      $("[wm-relogio]").removeAttr("opa");
+    </script>
+  </body>
+</html>

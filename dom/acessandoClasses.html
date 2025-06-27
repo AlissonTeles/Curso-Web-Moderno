@@ -1,19 +1,30 @@
 <!DOCTYPE html>
 <html>
-
-<head>
-    <meta charset='UTF-8'>
+  <head>
+    <meta charset="UTF-8" />
     <title>Acessando Classes</title>
-    <link rel='stylesheet' href='css/estilo.css'>
-</head>
+    <link rel="stylesheet" href="css/estilo.css" />
+  </head>
 
-<body class='conteudo exercicio'>
-    <div>
-        Classes
-    </div>
+  <body class="conteudo exercicio">
+    <div>Classes</div>
     <script>
-        // ...
+      var classe = document.querySelector("div").classList;
+      classe.add("destaque");
+      classe.remove("destaque");
+      classe.toggle("destaque");
+      console.log(classe.contains("destaque"));
+      console.log(classe.length);
+      classe.toggle("destaque");
+      console.log(classe.contains("destaque"));
+      console.log(classe.length);
+      classe.add("destaque1");
+      classe.add("destaque2");
+      console.log(classe.length);
+      for (c in classe) {
+        console.log(c);
+      }
+      classe.forEach((c) => console.log(c));
     </script>
-</body>
-
+  </body>
 </html>

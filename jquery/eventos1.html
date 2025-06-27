@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Eventos #01</title>
+    <link rel="stylesheet" href="css/estilo.css" />
+    <script src="js/jquery.js"></script>
+    <style>
+      input {
+        font-size: 2em;
+      }
+    </style>
+  </head>
+
+  <body class="conteudo exercicio">
+    <h1>Eventos #01</h1>
+    <div id="posicao"></div>
+    <div id="cliques">Cliques: 0</div>
+    <input type="text" placeholder="Cor de Background" />
+
+    <script>
+      function mostrarPosicaoMouse(e) {
+        return $("#posicao").html(`X: ${e.clientX} Y: ${e.clientY}`);
+      }
+
+      $("body").on("mousemove", mostrarPosicaoMouse);
+
+      $("#posicao").on("mouseover", (e) => {
+        $("body").off("mousemove");
+      });
+
+      $("#posicao").on("mouseleave", (e) => {
+        $("body").on("mousemove", mostrarPosicaoMouse);
+      });
+
+      let click = 1;
+      function mostrarCliques(e) {
+        $("#cliques").html(`Cliques: ${click++}`);
+      }
+      $("body").click(mostrarCliques);
+
+      const originalBackgroundColor = $("body").css("background-color");
+      $("input").on("keyup", function (e) {
+        const newColor = $(this).val();
+        if (newColor.match(/#[\da-fA-F]{3,6}/)) {
+          $("body").css("background-color", newColor);
+        } else {
+          $("body").css("background-color", originalBackgroundColor);
+        }
+      });
+    </script>
+  </body>
+</html>

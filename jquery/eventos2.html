@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Eventos #02</title>
+    <link rel="stylesheet" href="css/estilo.css" />
+    <script src="js/jquery.js"></script>
+    <style>
+      input {
+        font-size: 2em;
+      }
+    </style>
+  </head>
+
+  <body class="conteudo exercicio">
+    <h1>Eventos #02</h1>
+    <div id="div1">1</div>
+    <div id="resultado1">?</div>
+    <br />
+    <input type="text" placeholder="Digite e Selecione" />
+    <div id="resultado2">?</div>
+    <script>
+      const alternarDestaque = () => $("#div1").toggleClass("destaque");
+
+      // Aqui podemos usar o hover, que recebe 2 parametros, cada parametro é executando um quando ele entra no hover e o outro é quando ele sai do hover (podemos usar apenas um que ele vai usar nos 2 casos)
+      //$("#div1").hover(alternarDestaque, alternarDestaque);
+      //$("#div1").hover(alternarDestaque);
+
+      // Podemos chamar mais de um evento em um on, apenas usando o espaço para isso
+      $("#div1").on("mouseenter mouseout", alternarDestaque);
+      $("#div1").one("mouseenter", (e) => alert("Entrando pela primeira vez!"));
+
+      // Evento para double click
+      $("#div1").dblclick((e) => $("#div1").fadeOut(1000).fadeIn(1000));
+
+      // Evento para quando mudamos o tamanho da tela
+      $(window).resize((e) => {
+        const width = $(window).width();
+        const height = $(window).height();
+        $("#resultado1").html(`Altura: ${width} Largura: ${height}`);
+      });
+
+      // Evento quando selecionamos um valor dentro de um input
+      $("input").select(function (e) {
+        const startSelect = e.target.selectionStart;
+        const endSelect = e.target.selectionEnd;
+        $("#resultado2").html($(this).val().substring(startSelect, endSelect));
+      });
+    </script>
+  </body>
+</html>

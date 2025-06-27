@@ -1,0 +1,1 @@
+(()=>{var o={933:(o,r,s)=>{const e=s(980);console.log(e.saudacoes())},980:o=>{o.exports={saudacoes:()=>"Ola, sou o moduloB"}}},r={};function s(e){var t=r[e];if(void 0!==t)return t.exports;var a=r[e]={exports:{}};return o[e](a,a.exports,s),a.exports}(()=>{"use strict";s(933);(new class{Cumprimentar(){console.log("Bom dia!")}}).Cumprimentar()})()})();
